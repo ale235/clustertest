@@ -141,7 +141,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     });
 
     Route::resource('comments', 'CommentsController');
-    
+    Route::resource('slider', 'SliderController');
+    Route::get('datatable/getdata', 'SliderController@getData')->name('datatable/getdata');
+
+
 });
 
 
