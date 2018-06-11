@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -31,7 +32,8 @@ class BlogController extends Controller {
         if(!empty($survey)){
             $responses = DB::table('response')->where('survey_id', $survey->survey_id)->get();
         }
-        return view('frontend.sitio', compact('title', 'tags', 'survey', 'responses','posts'));
+        $sliders = Slider::all();
+        return view('frontend.sitio', compact('title', 'tags', 'survey', 'responses','posts','sliders'));
     }
     
     

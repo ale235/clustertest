@@ -26,6 +26,8 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
         <link href="{{asset('plugings/lobibox/css/lobibox.min.css')}}" rel="stylesheet">
+
+        <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
               
         <!-- Scripts -->
        

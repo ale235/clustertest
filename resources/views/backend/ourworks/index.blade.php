@@ -12,17 +12,17 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Titulo</th>
-                                <th>Descripcion</th>
-                                <th>Imagen</th>
-                                {{--<th>Action</th>--}}
+                                <th>Código</th>
+                                <th>Mail</th>
+                                <th>Dni</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                     </table>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <a  href="{{url('/admin/slider/create/')}}"><button type="button" class="btn btn-default pull-left"><i class="fa fa-plus"></i> Agregar Proveedor</button></a>
+                    <a  href="{{url('/proveedor/create/')}}"><button type="button" class="btn btn-default pull-left"><i class="fa fa-plus"></i> Agregar Proveedor</button></a>
                 </div>
             </div>
             <!-- /.box -->
@@ -37,17 +37,17 @@
             processing: true,
             serverSide: true,
             ajax: '{{ route('datatable/getdata') }}',
-//            language: {
-//                url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-//            },
+            language: {
+                url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+            },
             exportable:true,
             printable :true,
             columns: [
                 {data: 'id', name: 'id', visible : false},
-                {data: 'titulo', name: 'titulo'},
-                {data: 'descripcion', name: 'descripcion'},
-                {data: 'imagen', name: 'imagen'},
-//                {data: 'action', name: 'action'},
+//                {data: 'codigo', name: 'codigo'},
+//                {data: 'mail', name: 'mail'},
+//                {data: 'dni', name: 'dni'},
+                {data: 'action', name: 'action'},
             ]
         });
     });

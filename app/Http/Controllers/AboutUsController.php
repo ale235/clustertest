@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Models\Slider;
+use App\AboutUs;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Yajra\Datatables\Datatables;
 
-class SliderController extends Controller
+class AboutUsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-//        $sliders = Slider::all();
-//        dd($sliders);
-        return view('backend.slider.index');
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('backend.slider.create');
+        //
     }
 
     /**
@@ -39,16 +35,16 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Slider  $slider
+     * @param  \App\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function show(Slider $slider)
+    public function show(AboutUs $aboutUs)
     {
         //
     }
@@ -56,10 +52,10 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Slider  $slider
+     * @param  \App\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit(AboutUs $aboutUs)
     {
         //
     }
@@ -68,10 +64,10 @@ class SliderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Slider  $slider
+     * @param  \App\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, AboutUs $aboutUs)
     {
         //
     }
@@ -79,16 +75,11 @@ class SliderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Slider  $slider
+     * @param  \App\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy(AboutUs $aboutUs)
     {
         //
-    }
-
-    public function getData()
-    {
-        return Datatables::of(Slider::all())->make(true);
     }
 }
