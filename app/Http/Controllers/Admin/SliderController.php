@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 use Yajra\Datatables\Datatables;
 
 class SliderController extends Controller
@@ -39,7 +40,42 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        //dd($request);
+        $slider = new Slider([
+            'titulo' => $request['titulo_text'],
+            'descripcion' => $request['descripcion'],
+//            'content' => $request['content'],
+//            'updated_at' => Carbon::now(), //date('Y-m-d G:i:s') DB::raw('NOW()')
+//            'created_at' => Carbon::now()  //date('Y-m-d G:i:s') DB::raw('NOW()')
+        ]);
+
+        $photoName = $request->imagen->getClientOriginalName();
+        $slider->imagen = $photoName;
+        //dd($photoName);
+        /*
+        talk the select file and move it public directory and make avatars
+        folder if doesn't exsit then give it that unique name.
+        */
+        //dd($path);
+        $request->imagen->move(public_path('imagenes/slider'), $photoName);
+        $slider->save();
+//        return view('backend.slider.create');
+
+//        $img = Image::make('public/foo.jpg')
+//
+//    // resize image to fixed size
+//    // See the docs - http://image.intervention.io/api/resize
+//    $img->resize(300, 200);
+//
+//    // The below part is optional, this is if uploads "belongTo" a "User"
+//    // so you automatically insert the relation, if you don't need it, just
+//    // remove it.
+//    $user->uploads()->create([
+//        'original_name' => $name
+//    ]);
+
+
+        return Redirect::to('admin/slider');
     }
 
     /**

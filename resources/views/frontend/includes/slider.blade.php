@@ -9,18 +9,20 @@
                                 <div class="col-sm-7">
                                     <h1>{{$slider->titulo}}</h1>
                                     <h2>creative world</h2>
+                                    <img src="{{ asset('imagenes/slider/')}}/{{$slider->imagen }}">
                                     <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor. Aenean sollicitudin, lorem quis bibendum auctor.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @else
-                    <div class="item" style="background-image: url(images/slider/02.jpg)">
+                    <div class="item" style="background-image: url({{ asset('storage/app/slider/')}}/{{$slider->imagen }})">
                         <div class="carousel-caption container">
                             <div class="row">
                                 <div class="col-sm-7">
                                     <h1>{{$slider->titulo}}</h1>
                                     <h2>creative world</h2>
+                                    <img src="{{ asset('storage/app/slider/')}}/{{$slider->imagen }}">
                                     <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor. Aenean sollicitudin, lorem quis bibendum auctor.</p>
                                 </div>
                             </div>
