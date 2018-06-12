@@ -7,8 +7,8 @@
 
 
 @section('content')
-    <div id="page-content" class="container" style="border: 0px solid red;">
-        <div class="row">
+    {{--<div id="page-content" class="container" style="border: 0px solid red;">--}}
+        {{--<div class="row">--}}
 
             @include('frontend.includes.slider')
             @include('frontend.includes.services')
@@ -20,6 +20,6 @@
             @include('frontend.includes.fun-facts')
             @include('frontend.includes.contact')
 
-        </div>
-    </div>
+        {{--</div>--}}
+    {{--</div>--}}
 @endsection

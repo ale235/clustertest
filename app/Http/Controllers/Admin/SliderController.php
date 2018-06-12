@@ -50,14 +50,15 @@ class SliderController extends Controller
         ]);
 
         $photoName = $request->imagen->getClientOriginalName();
-        $slider->imagen = $photoName;
+        $slider->imagen = trim($photoName);
+        $slider->imagen = str_replace(' ', '_', $slider->imagen);
         //dd($photoName);
         /*
         talk the select file and move it public directory and make avatars
         folder if doesn't exsit then give it that unique name.
         */
         //dd($path);
-        $request->imagen->move(public_path('imagenes/slider'), $photoName);
+        $request->imagen->move(public_path('imagenes/slider'), $slider->imagen);
         $slider->save();
 //        return view('backend.slider.create');
 
