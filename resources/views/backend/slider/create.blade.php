@@ -61,9 +61,13 @@
                                 <label for="forsubtitulouno">Subtítulo - arriba</label>
                                 <input type="text" class="form-control" id="subtitulo_uno" name="subtitulo_uno" placeholder="Ingrese el Subtitulo que va justo debajo del título ">
                             </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label for="forsubtitulodos">Orden</label>--}}
+                                {{--<input type="text" class="form-control" id="orden" name="orden" placeholder="Ingrese el Subtítulo que va just debajo del Subtítulo ">--}}
+                            {{--</div>--}}
                             <div class="form-group">
-                                <label for="forsubtitulodos">Subtítulo - abajo</label>
-                                <input type="text" class="form-control" id="subtitulo_dos" name="subtitulo_dos" placeholder="Ingrese el Subtítulo que va just debajo del Subtítulo ">
+                                <label for="forsubtitulodos">Orden</label>
+                                <input type="text" class="form-control" id="orden" name="orden" placeholder="Ingrese el Orden en que quiere que aparezca ubicado">
                             </div>
                             <div class="form-group">
                                 <label for="fordescripcion">Descripción</label>

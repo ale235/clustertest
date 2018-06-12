@@ -40,25 +40,25 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $slider = new Slider([
             'titulo' => $request['titulo_text'],
             'descripcion' => $request['descripcion'],
-//            'content' => $request['content'],
-//            'updated_at' => Carbon::now(), //date('Y-m-d G:i:s') DB::raw('NOW()')
-//            'created_at' => Carbon::now()  //date('Y-m-d G:i:s') DB::raw('NOW()')
+            'subtitulo' => $request['subtitulo_uno'],
+            'orden' => $request['orden'],
         ]);
 
+        //Código referido a las imagenes
         $photoName = $request->imagen->getClientOriginalName();
         $slider->imagen = trim($photoName);
         $slider->imagen = str_replace(' ', '_', $slider->imagen);
-        //dd($photoName);
-        /*
-        talk the select file and move it public directory and make avatars
-        folder if doesn't exsit then give it that unique name.
-        */
-        //dd($path);
         $request->imagen->move(public_path('imagenes/slider'), $slider->imagen);
+        //Fin código referido a las imágenes
+
+        //Código referido al Orden
+//        $cantidadDeSliders = Slider::all()->count();
+//        $slider->
+        //Fin código referido al Orden
+
         $slider->save();
 //        return view('backend.slider.create');
 

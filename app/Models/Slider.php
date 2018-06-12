@@ -10,6 +10,6 @@ class Slider extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'titulo', 'subtitulo', 'descripcion', 'imagen', 'path'
+        'titulo', 'subtitulo', 'descripcion', 'imagen', 'orden'
     ];
 }
