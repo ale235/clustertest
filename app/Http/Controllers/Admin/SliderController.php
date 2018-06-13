@@ -17,9 +17,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-//        $sliders = Slider::all();
+        $sliders = Slider::paginate(10);
 //        dd($sliders);
-        return view('backend.slider.index');
+        return view('backend.slider.index', ['sliders' => $sliders]);
     }
 
     /**
@@ -60,20 +60,6 @@ class SliderController extends Controller
         //Fin código referido al Orden
 
         $slider->save();
-//        return view('backend.slider.create');
-
-//        $img = Image::make('public/foo.jpg')
-//
-//    // resize image to fixed size
-//    // See the docs - http://image.intervention.io/api/resize
-//    $img->resize(300, 200);
-//
-//    // The below part is optional, this is if uploads "belongTo" a "User"
-//    // so you automatically insert the relation, if you don't need it, just
-//    // remove it.
-//    $user->uploads()->create([
-//        'original_name' => $name
-//    ]);
 
 
         return Redirect::to('admin/slider');
@@ -126,6 +112,13 @@ class SliderController extends Controller
 
     public function getData()
     {
-        return Datatables::of(Slider::all())->make(true);
+        $sliders = Slider::all();
+
+        return $this->datatables($sliders)
+            ->addColumn('action', function ($proveedor){
+                return '<a href="proveedor/' . $proveedor->id .'" class="btn btn-xs btn-primary edit" id="'.$proveedor->id.'"><i class=""></i> Ver</a><a href="proveedor/' . $proveedor->id . '/edit" class="btn btn-xs btn-primary edit" id="'.$proveedor->id.'"><i class=""></i> Editar</a><a href="" data-toggle="modal" data-target="#myModal" class="btn btn-xs btn-primary" id="'.$proveedor->id.'"><i class=""></i> Borrar</a>';
+            })
+            ->make(true);
+        //return Datatables::of(Slider::all())->make(true);
     }
 }

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Servicios;
+use App\Models\Servicios;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ServiciosController extends Controller
@@ -14,7 +15,7 @@ class ServiciosController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.servicios.index');
     }
 
     /**

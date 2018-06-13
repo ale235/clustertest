@@ -8,18 +8,40 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table id="tabla">
+                    <table class="table table-striped">
                         <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Titulo</th>
-                                <th>Descripcion</th>
-                                <th>Imagen</th>
-                                {{--<th>Action</th>--}}
-                            </tr>
+                        <tr>
+                            <th>Id</th>
+                            <th>Titulo</th>
+                            <th>Subtitulo</th>
+                            <th>Descripción</th>
+                            <th>Imagen</th>
+                            <th>Orden</th>
+                            <th>Estado</th>
+                            <th>Opciones</th>
+                        </tr>
                         </thead>
+                        <tbody>
+                        @foreach($sliders as $slider)
+                            <tr>
+                                <td>{{$slider->id}}</td>
+                                <td>{{$slider->titulo}}</td>
+                                <td>{{$slider->subtitulo}}</td>
+                                <td>{{$slider->descripcion}}</td>
+                                <td>{{$slider->imagen}}</td>
+                                <td>{{$slider->orden}}</td>
+                                <td>ESTADO</td>
+                                <td>
+                                    <a href="proveedor/'{{$slider->id}}'" class="btn btn-xs btn-primary edit" id="'.$proveedor->id.'"><i class=""></i> Ver</a>
+                                    <a href="proveedor/'{{$slider->id}}'/edit" class="btn btn-xs btn-primary edit" id="'.$proveedor->id.'"><i class=""></i> Editar</a>
+                                    <a href="" data-toggle="modal" data-target="#myModal" class="btn btn-xs btn-primary" id="'{{$slider->id}}'"><i class=""></i> Borrar</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
                 </div>
+            {!! $sliders->render() !!}
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <a  href="{{url('/admin/slider/create/')}}"><button type="button" class="btn btn-default pull-left"><i class="fa fa-plus"></i> Agregar Proveedor</button></a>
@@ -30,26 +52,4 @@
     </div>
 @endsection
 @push ('scripts')
-<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-<script>
-    $(function() {
-        $('#tabla').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: '{{ route('datatable/getdata') }}',
-//            language: {
-//                url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-//            },
-            exportable:true,
-            printable :true,
-            columns: [
-                {data: 'id', name: 'id', visible : false},
-                {data: 'titulo', name: 'titulo'},
-                {data: 'descripcion', name: 'descripcion'},
-                {data: 'imagen', name: 'imagen'},
-//                {data: 'action', name: 'action'},
-            ]
-        });
-    });
-</script>
 @endpush
