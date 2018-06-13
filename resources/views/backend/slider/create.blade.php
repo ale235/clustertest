@@ -73,6 +73,10 @@
                                 <label for="fordescripcion">Descripción</label>
                                 <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese la descripción">
                             </div>
+                            <div class="form-group">
+                                <label for="forsubtitulodos">Estado</label>
+                                <input type="text" class="form-control" id="estado" name="estado" placeholder="Ingrese el Estado en que quiere que aparezca ubicado">
+                            </div>
                         </div>
                     </div>
                 </div>

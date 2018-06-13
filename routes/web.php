@@ -6,9 +6,9 @@
   |--------------------------------------------------------------------------
  */
 
-Route::get('/', function () {
-    return view('frontend.layouts.master');
-});
+//Route::get('/', function () {
+//    return view('frontend.layouts.master');
+//});
 Route::get('/about', function () {
     return view('frontend.about');
 });
