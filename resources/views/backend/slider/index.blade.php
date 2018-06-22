@@ -23,7 +23,9 @@
                         </thead>
                         <tbody>
                         @foreach($sliders as $slider)
-                            <tr>
+                            <tr  style="
+                                overflow: hidden;
+                                text-overflow: ellipsis;">
                                 <td>{{$slider->id}}</td>
                                 <td>{{$slider->titulo}}</td>
                                 <td>{{$slider->subtitulo}}</td>
