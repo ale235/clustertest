@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Yajra\Datatables\Datatables;
+use Illuminate\Support\Facades\DB;
 
 class SliderController extends Controller
 {
@@ -17,7 +18,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::paginate(10);
+        $sliders = Slider::orderBy('orden','asc')->paginate(10);
 //        dd($sliders);
         return view('backend.slider.index', ['sliders' => $sliders]);
     }
@@ -44,7 +45,8 @@ class SliderController extends Controller
             'titulo' => $request['titulo_text'],
             'descripcion' => $request['descripcion'],
             'subtitulo' => $request['subtitulo_uno'],
-            'orden' => $request['orden'],
+            'orden' => (Slider::all()->count() + 1),
+            'estado' => 1,
         ]);
 
         //Código referido a las imagenes
@@ -71,9 +73,10 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function show(Slider $slider)
+    public function show($id)
     {
-        //
+        $slider = Slider::findOrFail($id);
+        return view('backend.slider.show', compact('slider'));
     }
 
     /**
@@ -82,9 +85,11 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit($id)
     {
-        //
+        $slider = Slider::findOrFail($id);
+//        dd($post);
+        return view('backend.slider.edit', compact('slider'));
     }
 
     /**
@@ -94,9 +99,32 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, $id)
     {
-        //
+        try
+        {
+            DB::beginTransaction();
+
+            $slider = Slider::findOrFail($id);
+            $slider->titulo = $request->get('titulo_text');
+            $slider->subtitulo = $request->get('subtitulo_uno');
+            $slider->descripcion = $request->get('descripcion');
+
+            if($request->imagen!= null)
+            {
+                $photoName = $request->imagen->getClientOriginalName();
+                $slider->imagen = trim($photoName);
+                $slider->imagen = str_replace(' ', '_', $slider->imagen);
+                $request->imagen->move(public_path('imagenes/slider'), $slider->imagen);
+            }
+            $slider->update();
+            DB::commit();
+        }
+        catch(\Exception $e)
+        {
+            DB::rollback();
+        }
+        return Redirect::to('admin/slider');
     }
 
     /**
@@ -105,9 +133,12 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy($id)
     {
-        //
+        $slider = Slider::findOrFail($id);
+        $slider->delete();
+        return Redirect::to('admin/slider');
+
     }
 
     public function getData()
@@ -120,5 +151,24 @@ class SliderController extends Controller
             })
             ->make(true);
         //return Datatables::of(Slider::all())->make(true);
+    }
+
+    public function ordenar(Request $request)
+    {
+        $slider = Slider::find($request->id);
+        $slider->orden = $request->orden;
+        $slider->update();
+//        $data = $request->all(); // This will get all the request data.
+//        var_dump($data);
+//        dd($data); // This will dump and die
+    }
+    public function cambiarEstado(Request $request)
+    {
+        $slider = Slider::find($request->id);
+        $slider->estado = $request->estado;
+        $slider->update();
+//        $data = $request->all(); // This will get all the request data.
+//        var_dump($data);
+//        dd($data); // This will dump and die
     }
 }

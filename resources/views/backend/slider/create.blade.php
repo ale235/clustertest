@@ -55,28 +55,28 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="fortitulo">Título</label>
-                                <input type="text" class="form-control" id="titulo_text" name="titulo_text" placeholder="Ingrese el Título">
+                                <input type="text" class="form-control" id="titulo_text" name="titulo_text" maxlength="20" placeholder="Ingrese el Título: Máx 20">
                             </div>
                             <div class="form-group">
                                 <label for="forsubtitulouno">Subtítulo - arriba</label>
-                                <input type="text" class="form-control" id="subtitulo_uno" name="subtitulo_uno" placeholder="Ingrese el Subtitulo que va justo debajo del título ">
+                                <input type="text" class="form-control" id="subtitulo_uno" name="subtitulo_uno" maxlength="20" placeholder="Ingrese el Subtitulo: Máx 20 ">
                             </div>
                             {{--<div class="form-group">--}}
                                 {{--<label for="forsubtitulodos">Orden</label>--}}
                                 {{--<input type="text" class="form-control" id="orden" name="orden" placeholder="Ingrese el Subtítulo que va just debajo del Subtítulo ">--}}
                             {{--</div>--}}
-                            <div class="form-group">
-                                <label for="forsubtitulodos">Orden</label>
-                                <input type="text" class="form-control" id="orden" name="orden" placeholder="Ingrese el Orden en que quiere que aparezca ubicado">
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label for="forsubtitulodos">Orden</label>--}}
+                                {{--<input type="text" class="form-control" id="orden" name="orden" placeholder="Ingrese el Orden en que quiere que aparezca ubicado">--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 <label for="fordescripcion">Descripción</label>
-                                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese la descripción">
+                                <input type="text" class="form-control" id="descripcion" name="descripcion" maxlength="130"  placeholder="Ingrese la descripción: Máx 130">
                             </div>
-                            <div class="form-group">
-                                <label for="forsubtitulodos">Estado</label>
-                                <input type="text" class="form-control" id="estado" name="estado" placeholder="Ingrese el Estado en que quiere que aparezca ubicado">
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label for="forsubtitulodos">Estado</label>--}}
+                                {{--<input type="text" class="form-control" id="estado" name="estado" placeholder="Ingrese el Estado en que quiere que aparezca ubicado">--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </div>
@@ -87,24 +87,41 @@
                             <div class="box-tools">
                                 <ul class="list-inline pull-right" style="list-style-type: none;">
                                     <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>                                            </ul>
+                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Imagen</label>
+                                <label for="forimagen">Imagen - Resolución recomendada: (1600x600) px</label>
                                 <input class="form-control" name="imagen" type="file" id="imagen" placeholder="">
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" role="tabpanel" id="step3">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Vista Previa</h3>
+                            <div class="box-tools">
+                                <ul class="list-inline pull-right" style="list-style-type: none;">
+                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>                                            </ul>
+                            </div>
+                        </div>
+                        <div class="box-body">
+
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="complete">
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Estos son todos los datos del proveedor, corrobarlos y en caso de existir algún error, regresar y corregir</h3>
+                            <h3 class="box-title">Corroborá si están todos bien los campos y en caso de existir algún error, regresar y corregir.</h3>
                             <div class="box-tools">
                                 <ul class="list-inline pull-right" style="list-style-type: none;">
-                                    <li><button id="submit" type="submit" class="btn btn-success">Guardar</button></li>                                    </ul>
+                                    <li><button id="submit" type="submit" class="btn btn-success">Guardar</button></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="box-body">

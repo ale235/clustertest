@@ -32,7 +32,9 @@ class BlogController extends Controller {
 //        if(!empty($survey)){
 //            $responses = DB::table('response')->where('survey_id', $survey->survey_id)->get();
 //        }
-        $sliders = Slider::all();
+        $sliders = Slider::where('estado','1')
+            ->orderBy('orden','asc')
+            ->get();
         return view('frontend.sitio', compact('title', 'tags', 'survey', 'responses','posts','sliders'));
     }
     

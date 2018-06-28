@@ -28,7 +28,14 @@
         <link href="{{asset('plugings/lobibox/css/lobibox.min.css')}}" rel="stylesheet">
 
         <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
-              
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+
         <!-- Scripts -->
        
         <link href="{{ asset('/css/back/back.css') }}" rel="stylesheet">
@@ -57,8 +64,13 @@
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <!-- Bootstrap Core JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
         <!-- Metis Menu Plugin JavaScript -->
         <script src="{{ asset('/plugings/back/metisMenu/metisMenu.min.js') }}"></script>
         <script src="{{asset('plugings/lobibox/js/notifications.min.js')}}"></script>

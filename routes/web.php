@@ -145,6 +145,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::resource('servicios', 'ServiciosController');
 
     Route::get('datatable/getdata', 'SliderController@getData')->name('datatable/getdata');
+    Route::get('/ordenar', 'SliderController@ordenar')->name('ordenar');
+    Route::get('/cambiarEstado', 'SliderController@cambiarEstado')->name('cambiarEstado');
 
 
 });
