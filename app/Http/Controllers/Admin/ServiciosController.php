@@ -134,4 +134,23 @@ class ServiciosController extends Controller
     {
         //
     }
+
+    public function ordenarServicios(Request $request)
+    {
+        $servicios = Servicios::find($request->id);
+        $servicios->orden = $request->orden;
+        $servicios->update();
+//        $data = $request->all(); // This will get all the request data.
+//        var_dump($data);
+//        dd($data); // This will dump and die
+    }
+    public function cambiarEstadoServicios(Request $request)
+    {
+        $servicios = Servicios::find($request->id);
+        $servicios->estado = $request->estado;
+        $servicios->update();
+//        $data = $request->all(); // This will get all the request data.
+//        var_dump($data);
+//        dd($data); // This will dump and die
+    }
 }

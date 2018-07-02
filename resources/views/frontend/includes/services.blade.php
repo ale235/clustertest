@@ -11,10 +11,18 @@
 
             @foreach($servicios as $servicio)
                 <div class="col-md-4 col-sm-6 st-service">
-                    <img src="{{ asset('imagenes/servicios/')}}/{{$servicio->icono }}" style="position: absolute;height: 10%;">
-                    <h2>{{$servicio->titulo}}</h2>
+                    <span>
+                            <h2 style="margin-left: 10px">
+                                <i><img src="{{ asset('imagenes/servicios/')}}/{{$servicio->icono }}" style="position: absolute; height: 10%; margin-left: -10px"></i>
+                                {{$servicio->titulo}}
+                            </h2>
+                    </span>
                     <p>{{$servicio->descripcion}}</p>
                 </div>
+                {{--<div class="col-md-4 col-sm-6 st-service">--}}
+                    {{--<h2><i class="fa fa-code"></i> Custom Development</h2>--}}
+                    {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta libero autem, magni veritatis, optio dolor.</p>--}}
+                {{--</div>--}}
             @endforeach
 
             {{--<div class="col-md-4 col-sm-6 st-service">--}}

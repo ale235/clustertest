@@ -80,7 +80,7 @@
                 var orden = i + 1;
                 $.ajax({
                     type: 'get', // Type of response and matches what we said in the route
-                    url: '{{ route('ordenar') }}', // This is the url we gave in the route
+                    url: '{{ route('ordenarServicios') }}', // This is the url we gave in the route
                     data: {'id' : id, 'orden' : orden}, // a JSON object to send back
                     success: function(response){ // What to do if we succeed
                         console.log(response);
@@ -105,7 +105,7 @@
             var id = parseInt($($(this).parent().parent().parent().find('td')[0]).text());
             $.ajax({
                 type: 'get', // Type of response and matches what we said in the route
-                url: '{{ route('cambiarEstado') }}', // This is the url we gave in the route
+                url: '{{ route('cambiarEstadoServicios') }}', // This is the url we gave in the route
                 data: {'id' : id, 'estado' : 1}, // a JSON object to send back
                 success: function(response){ // What to do if we succeed
                     console.log(response);
