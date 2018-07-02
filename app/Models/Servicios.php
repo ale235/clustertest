@@ -10,6 +10,6 @@ class Servicios extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'titulo', 'descripción', 'icono', 'orden'
+        'titulo', 'descripcion', 'icono', 'orden', 'estado'
     ];
 }

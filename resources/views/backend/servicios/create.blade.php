@@ -1,126 +1,121 @@
-@extends ('layouts.admin')
-@section ('contenido')
-    <section>
-        <div class="wizard">
-            <div class="wizard-inner">
-                <div class="connecting-line"></div>
-                <ul class="nav nav-tabs" role="tablist">
+@extends('backend.layouts.master')
+@section ('content')
+    <div class="wizard">
+        <div class="wizard-inner">
+            <div class="connecting-line"></div>
+            <ul class="nav nav-tabs" role="tablist">
 
-                    <li role="presentation" class="active">
-                        <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                <li role="presentation" class="active">
+                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
                             <span class="round-tab">
-                                <i class="fa fa-file"></i>
+                                <i class="">1º</i>
                             </span>
-                        </a>
-                    </li>
+                    </a>
+                </li>
 
-                    <li role="presentation" class="disabled">
-                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                <li role="presentation" class="disabled">
+                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
                             <span class="round-tab">
-                                <i class="glyphicon glyphicon-pencil"></i>
+                                <i class="">2º</i>
                             </span>
-                        </a>
-                    </li>
+                    </a>
+                </li>
 
-                    <li role="presentation" class="disabled">
-                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                <li role="presentation" class="disabled">
+                    <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
                             <span class="round-tab">
-                                <i class="glyphicon glyphicon-picture"></i>
+                                <i class="">3º</i>
                             </span>
-                        </a>
-                    </li>
+                    </a>
+                </li>
 
-                    <li role="presentation" class="disabled">
-                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                <li role="presentation" class="disabled">
+                    <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
                             <span class="round-tab">
-                                <i class="glyphicon glyphicon-ok"></i>
+                                <i class="">4º</i>
                             </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-            <form role="form">
-                <div class="tab-content">
-                    <div class="tab-pane active" role="tabpanel" id="step1">
-                        <h3>Datos del Proveedor Principales</h3>
-                        {{--<p>This is step 1</p>--}}
-                        <div class="box box-primary">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Razón Social</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese Razón Social">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Nombre y Apellido de Contacto</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese el Nombre y Apellido del contacto del Proveedor (Opcional) ">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese email (Opcional)">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">CUIT/CUIL</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese el CUIT o CUIL del proveedor (Opcional)">
-                                </div>
-                        </div>
-                        </div>
-                        <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane" role="tabpanel" id="step2">
-                        <h3>Datos Secundarios</h3>
-                        <div class="box box-primary">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Teléfono 1</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese un Teléfono (Opcional)">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Teléfono 2</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese otro Teléfono (Opcional)">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Facebook</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese el Facebook (Opcional) ">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Instagram</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese el Instagram (Opcional) ">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Twitter</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese el Twitter (Opcional)">
-                                </div>
+        <form role="form" enctype="multipart/form-data" method="post" action="{{url('admin/servicios')}}">
+            {{ csrf_field() }}
+            <div class="tab-content">
+                <div class="tab-pane active" role="tabpanel" id="step1">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Título - Descripción</h3>
+                            <div class="box-tools">
+                                <ul class="pull-right" style="list-style-type: none;">
+                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                </ul>
                             </div>
                         </div>
-                        <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                        </ul>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="fortitulo">Título</label>
+                                <input type="text" class="form-control" id="titulo_text" name="titulo_text" maxlength="50" placeholder="Ingrese el Título: Máx 50">
+                            </div>
+                            <div class="form-group">
+                                <label for="fordescripcion">Descripción</label>
+                                <input type="text" class="form-control" id="descripcion" name="descripcion" maxlength="250"  placeholder="Ingrese la descripción: Máx 250">
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane" role="tabpanel" id="step3">
-                        <h3>Step 3</h3>
-                        <p>Este es el Código interno del Proveedor</p>
-                        <label>CODIGO</label>
-                        <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>
-                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
-                        </ul>
+                </div>
+                <div class="tab-pane" role="tabpanel" id="step2">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Ícono</h3>
+                            <div class="box-tools">
+                                <ul class="list-inline pull-right" style="list-style-type: none;">
+                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                {{--<label for="forimagen"></label>--}}
+                                <input class="form-control" name="icono" type="file" id="icono" placeholder="">
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane" role="tabpanel" id="complete">
-                        <h3>Complete</h3>
-                        <p>You have successfully completed all steps.</p>
-                        <li><button type="submit" class="btn btn-default">Guardar</button></li>
+                </div>
+                <div class="tab-pane" role="tabpanel" id="step3">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Vista Previa</h3>
+                            <div class="box-tools">
+                                <ul class="list-inline pull-right" style="list-style-type: none;">
+                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>                                            </ul>
+                            </div>
+                        </div>
+                        <div class="box-body">
 
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" role="tabpanel" id="complete">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Corroborá si están todos bien los campos y en caso de existir algún error, regresar y corregir.</h3>
+                            <div class="box-tools">
+                                <ul class="list-inline pull-right" style="list-style-type: none;">
+                                    <li><button id="submit" type="submit" class="btn btn-success">Guardar</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                        </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-            </form>
-        </div>
-    </section>
+            </div>
+        </form>
+    </div>
 
 @endsection
 @push ('scripts')
@@ -152,6 +147,7 @@
             prevTab($active);
 
         });
+        $("#submit").submit();
     });
 
     function nextTab(elem) {

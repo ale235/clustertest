@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Slider;
+use App\Models\Servicios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -35,7 +36,10 @@ class BlogController extends Controller {
         $sliders = Slider::where('estado','1')
             ->orderBy('orden','asc')
             ->get();
-        return view('frontend.sitio', compact('title', 'tags', 'survey', 'responses','posts','sliders'));
+        $servicios = Servicios::where('estado','1')
+            ->orderBy('orden','asc')
+            ->get();
+        return view('frontend.sitio', compact('sliders','servicios'));
     }
     
     
