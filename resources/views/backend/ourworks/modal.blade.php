@@ -1,15 +1,17 @@
-<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1" id="modal-delete-{{$per->idpersona}}">
-    {{Form::open(array('action'=>array('ProveedorController@destroy', $per->idpersona), 'method'=>'delete'))}}
+<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1" id="modal-delete-{{$servicio->id}}">
+    <form action="/admin/servicios/{{ $servicio->id }}" method="post">
+        {{ method_field('delete') }}
+        {{ csrf_field() }}
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">x</span>
                     </button>
-                    <h4 class="modal-title">Eliminar Proveedor</h4>
+                    <h4 class="modal-title">Eliminar este Servicio</h4>
                 </div>
                 <div class="modal-body">
-                    <p> ¿Está seguro que desea eliminar este proveedor?</p>
+                    <p> ¿Está seguro?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"> Cerrar</button>
@@ -17,5 +19,5 @@
                 </div>
             </div>
         </div>
-    {{Form::close()}}
+    </form>
 </div>

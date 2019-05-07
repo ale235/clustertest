@@ -15,6 +15,11 @@ class CreateOurWorksTable extends Migration
     {
         Schema::create('our_works', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo_principal');
+            $table->string('subtitulo_principal');
+            $table->string('imagen_principal');
+            $table->string('titulo_blog');
+            $table->string('titulo_principal');
             $table->timestamps();
         });
     }
